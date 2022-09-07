@@ -1,8 +1,5 @@
 # main.py
-import sys
-import re
-import csv, os
-
+import sys, re, csv
 
 def handleNameArg(searchValue):
     numberPattern = '(?<=[A-Z]{3}-[A-Z]{2}-)\d{3}'

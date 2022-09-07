@@ -5,11 +5,30 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Python: Flask",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceRoot}/venv/scripts/python",
+            "module": "flask",
+            "env": {
+                "FLASK_APP": "./code/app.py",
+                "FLASK_ENV": "development",
+                "FLASK_DEBUG": "1"
+            },
+            "args": [
+                "run",
+            ],
+            "jinja": true
+        },
+        {
             "name": "Neude",
             "type": "python",
             "request": "launch",
             "program": "./code/main.py",
-            "args": ["--name", "Neude"],
+            "args": [
+                "--name",
+                "Neude"
+            ],
             "console": "integratedTerminal",
             "justMyCode": true
         }
