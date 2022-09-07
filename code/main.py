@@ -1,19 +1,27 @@
 # main.py
-from argparse import ArgumentError
-from msilib.schema import Error
 import sys
+import re
 
 
-def handleName():
-    pass
+def handleNameArg():
+    print('--name hiiaaa')
 
-validArguments = {'--name': handleName}
-
+def validateArgument(arg):
+    for key, value in validArguments.items():
+        if arg == key:
+            value()
+            return
+            
 
 if __name__ == "__main__":
-    print(f"Arguments count: {len(sys.argv)}")
     
-    # for i, arg in enumerate(sys.argv):
-    #     print(f"Argument {i:>6}: {arg}")
-    if len(sys.argv) > 2:
+    validArguments = {'--name': handleNameArg}  
+    
+    if len(sys.argv) > len(validArguments) + 2:
         raise Exception(f'Main only takes {len(validArguments)} argument(s)')
+    
+    for arg in sys.argv:
+        v = re.search('--[a-z]+', arg)
+        if v:
+            validateArgument(arg)
+        
